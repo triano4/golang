@@ -8,11 +8,12 @@ import (
 	"net/http"
 	"strconv"
 
+	"backend/api/auth"
+	"backend/api/models"
+	"backend/api/responses"
+	"backend/api/utils/formaterror"
+
 	"github.com/gorilla/mux"
-	"github.com/triano4/uploaddrive/api/auth"
-	"github.com/triano4/uploaddrive/api/models"
-	"github.com/triano4/uploaddrive/api/responses"
-	"github.com/triano4/uploaddrive/api/utils/formaterror"
 )
 
 //CreateUser function

@@ -5,13 +5,16 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/triano4/uploaddrive/api/auth"
-	"github.com/triano4/uploaddrive/api/models"
-	"github.com/triano4/uploaddrive/api/responses"
-	"github.com/triano4/uploaddrive/api/utils/formaterror"
+	"backend/api/models"
+	"backend/api/responses"
+	"backend/api/utils/formaterror"
+
+	"backend/api/auth"
+
 	"golang.org/x/crypto/bcrypt"
 )
 
+//EndpointTest function
 func (server *Server) EndpointTest(w http.ResponseWriter, r *http.Request) {
 	responses.JSON(w, http.StatusOK, "test")
 }

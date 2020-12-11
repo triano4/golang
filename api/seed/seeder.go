@@ -3,8 +3,9 @@ package seed
 import (
 	"log"
 
+	"backend/api/models"
+
 	"github.com/jinzhu/gorm"
-	"github.com/triano4/uploaddrive/api/models"
 )
 
 var users = []models.User{

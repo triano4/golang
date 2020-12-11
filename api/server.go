@@ -5,9 +5,10 @@ import (
 	"log"
 	"os"
 
+	"backend/api/controllers"
+	"backend/api/seed"
+
 	"github.com/joho/godotenv"
-	"github.com/triano4/uploaddrive/api/controllers"
-	"github.com/triano4/uploaddrive/api/seed"
 )
 
 var server = controllers.Server{}

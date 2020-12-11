@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/triano4/uploaddrive/api/auth"
-	"github.com/triano4/uploaddrive/api/responses"
+	"backend/api/auth"
+	"backend/api/responses"
 )
 
 //SetMiddlewareJSON function

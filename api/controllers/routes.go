@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/triano4/uploaddrive/api/middlewares"
-	"github.com/triano4/uploaddrive/code"
+	"backend/api/middlewares"
+	"backend/code"
 )
 
 func (s *Server) initializeRoutes() {
