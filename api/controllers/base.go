@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 
@@ -14,6 +15,27 @@ import (
 
 	"backend/api/models"
 )
+
+type Navigation struct {
+	Id       int    `json:"Id"`
+	Name     string `json:"Name"`
+	ParentId int    `json:"ParentId"`
+	SortId   int    `json:"SortId"`
+	NavIcon  string `json:"NavIcon"`
+	NavPath  string `json:"NavPath"`
+	NavAcc   string `json:"NavAcc"`
+}
+
+type Menu []Navigation
+
+type Pesan struct {
+	Nama      string    `json:"nama"`
+	Pesan     string    `json:"pesan"`
+	Completed bool      `json:"complete"`
+	Due       time.Time `json:"date"`
+}
+
+type Data []Pesan
 
 //Server struct
 type Server struct {
