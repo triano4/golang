@@ -62,6 +62,7 @@ func (r *Roles) SaveRole(db *gorm.DB) (*Roles, error) {
 	return r, err
 }
 
+//Update Role function
 func (r *Roles) UpdateRole(db *gorm.DB, uid uint32) (*Roles, error) {
 	role := Roles{}
 	db = db.First(&role, uid)
@@ -79,6 +80,7 @@ func (r *Roles) UpdateRole(db *gorm.DB, uid uint32) (*Roles, error) {
 	return r, nil
 }
 
+//Delete role function
 func (r *Roles) DeleteRole(db *gorm.DB, uid uint32) (*Roles, error) {
 	role := Roles{}
 	db.Delete(&role, uid)
@@ -89,6 +91,7 @@ func (r *Roles) DeleteRole(db *gorm.DB, uid uint32) (*Roles, error) {
 	return r, nil
 }
 
+//validation
 func (r *Roles) Validate(action string) error {
 	switch strings.ToLower(action) {
 	case "update":

@@ -39,6 +39,33 @@ var roles = []models.Roles{
 	},
 }
 
+var navs = []models.Nav{
+	models.Nav{
+		Name:     "Home",
+		ParentId: 0,
+		SortId:   1,
+		NavIcon:  "",
+		NavPath:  "/",
+		NavAcc:   "public",
+	},
+	models.Nav{
+		Name:     "User",
+		ParentId: 0,
+		SortId:   1,
+		NavIcon:  "",
+		NavPath:  "/Report",
+		NavAcc:   "public",
+	},
+	models.Nav{
+		Name:     "Setting",
+		ParentId: 0,
+		SortId:   1,
+		NavIcon:  "",
+		NavPath:  "/",
+		NavAcc:   "public",
+	},
+}
+
 //Load function
 func Load(db *gorm.DB) {
 
@@ -46,7 +73,8 @@ func Load(db *gorm.DB) {
 	// if err != nil {
 	// 	log.Fatalf("cannot drop table: %v", err)
 	// }
-	// err = db.Debug().AutoMigrate(&models.User{}, &models.Roles{}).Error
+
+	// err := db.Debug().AutoMigrate(&models.User{}, &models.Roles{}, &models.Nav{}).Error
 	// if err != nil {
 	// 	log.Fatalf("cannot migrate table: %v", err)
 	// }
@@ -74,6 +102,13 @@ func Load(db *gorm.DB) {
 	// 	err = db.Debug().Model(&models.Roles{}).Create(&roles[j]).Error
 	// 	if err != nil {
 	// 		log.Fatalf("cannot seed roles table: %v", err)
+	// 	}
+	// }
+
+	// for n, _ := range navs {
+	// 	err = db.Debug().Model(&models.Nav{}).Create(&navs[n]).Error
+	// 	if err != nil {
+	// 		log.Fatalf("cannot seed nav table: %v", err)
 	// 	}
 	// }
 }
