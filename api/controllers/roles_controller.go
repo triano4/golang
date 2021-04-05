@@ -122,6 +122,7 @@ func (server *Server) UpdateRole(w http.ResponseWriter, r *http.Request) {
 		responses.ERROR(w, http.StatusUnprocessableEntity, err)
 		return
 	}
+
 	updatedRole, err := role.UpdateRole(server.DB, uint32(uid))
 	if err != nil {
 		formattedError := formaterror.FormatError(err.Error())

@@ -1,6 +1,11 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import (
+	"errors"
+	"strings"
+
+	"github.com/jinzhu/gorm"
+)
 
 type Nav struct {
 	Id       int    `json:"Id"`
@@ -44,4 +49,21 @@ func (n *Nav) DeleteNav(db *gorm.DB, uid uint32) (*Nav, error) {
 	}
 
 	return n, nil
+}
+
+func (n *Nav) Validate(action string) error {
+	switch strings.ToLower(action) {
+	default:
+		if n.Name == "" {
+			return errors.New("Required Name")
+		}
+		if n.SortId == 0 {
+			return errors.New("Required Id Sorting")
+		}
+		if n.NavPath == "" {
+			return errors.New("Required Menu Path")
+		}
+		return nil
+
+	}
 }
