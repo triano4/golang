@@ -8,9 +8,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
+
+	"github.com/gorilla/mux"
 )
 
-//Get All Roles function
+//Get All Menu function
 func (server *Server) GetMenu(w http.ResponseWriter, r *http.Request) {
 
 	nav := models.Nav{}
@@ -53,4 +56,23 @@ func (server *Server) CreateMenu(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Location", fmt.Sprintf("%s%s/%d", r.Host, r.RequestURI, navCreated.Id))
 	responses.JSON(w, http.StatusCreated, navCreated)
+}
+
+func (server *Server) DeleteMenu(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	nav := models.Nav{}
+
+	uid, err := strconv.ParseUint(vars["id"], 10, 32)
+	if err != nil {
+		responses.ERROR(w, http.StatusBadRequest, err)
+		return
+	}
+	_, err = nav.DeleteNav(server.DB, uint32(uid))
+	if err != nil {
+		responses.ERROR(w, http.StatusInternalServerError, err)
+		return
+	}
+	w.Header().Set("Entity", fmt.Sprintf("%d", uid))
+	responses.JSON(w, http.StatusNoContent, "")
 }
