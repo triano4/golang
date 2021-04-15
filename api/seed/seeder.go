@@ -43,7 +43,7 @@ var roles = []models.Roles{
 var navs = []models.Nav{
 	models.Nav{
 		Name:     "Home",
-		ParentId: 0,
+		ParentId: "0",
 		SortId:   1,
 		NavIcon:  "",
 		NavPath:  "/",
@@ -51,16 +51,16 @@ var navs = []models.Nav{
 	},
 	models.Nav{
 		Name:     "User",
-		ParentId: 0,
-		SortId:   1,
+		ParentId: "0",
+		SortId:   2,
 		NavIcon:  "",
 		NavPath:  "/Report",
 		NavAcc:   "public",
 	},
 	models.Nav{
 		Name:     "Setting",
-		ParentId: 0,
-		SortId:   1,
+		ParentId: "0",
+		SortId:   3,
 		NavIcon:  "",
 		NavPath:  "/",
 		NavAcc:   "public",
