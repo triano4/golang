@@ -134,7 +134,7 @@ func (u *User) FindUserByID(db *gorm.DB, uid uint32) (*User, error) {
 }
 
 //UpdateAUser function
-func (u *User) UpdateAUser(db *gorm.DB, uid uint32) (*User, error) {
+func (u *User) UpdateUser(db *gorm.DB, uid uint32) (*User, error) {
 
 	// To hash the password
 	err := u.BeforeSave()

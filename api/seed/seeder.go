@@ -70,12 +70,12 @@ var navs = []models.Nav{
 //Load function
 func Load(db *gorm.DB) {
 
-	err := db.Debug().DropTableIfExists(&models.User{}, &models.Roles{}).Error
+	err := db.Debug().DropTableIfExists(&models.User{}, &models.Roles{}, &models.Nav{}, &models.Activity{}).Error
 	if err != nil {
 		log.Fatalf("cannot drop table: %v", err)
 	}
 
-	err = db.Debug().AutoMigrate(&models.User{}, &models.Roles{}, &models.Nav{}).Error
+	err = db.Debug().AutoMigrate(&models.User{}, &models.Roles{}, &models.Nav{}, &models.Activity{}).Error
 	if err != nil {
 		log.Fatalf("cannot migrate table: %v", err)
 	}

@@ -8,9 +8,9 @@ import (
 )
 
 type Nav struct {
-	Id       int    `json:"Id"`
+	Id       string `json:"Id"`
 	Name     string `json:"Name"`
-	ParentId int    `json:"ParentId"`
+	ParentId string `json:"ParentId"`
 	SortId   int    `json:"SortId"`
 	NavIcon  string `json:"NavIcon"`
 	NavPath  string `json:"NavPath"`
