@@ -3,18 +3,21 @@ package models
 import (
 	"errors"
 	"strings"
+	"time"
 
 	"github.com/jinzhu/gorm"
 )
 
 type Nav struct {
-	Id       string `json:"Id"`
-	Name     string `json:"Name"`
-	ParentId string `json:"ParentId"`
-	SortId   int    `json:"SortId"`
-	NavIcon  string `json:"NavIcon"`
-	NavPath  string `json:"NavPath"`
-	NavAcc   string `json:"NavAcc"`
+	Id        string    `json:"Id"`
+	Name      string    `json:"Name"`
+	ParentId  string    `json:"ParentId"`
+	SortId    int       `json:"SortId"`
+	NavIcon   string    `json:"NavIcon"`
+	NavPath   string    `json:"NavPath"`
+	NavAcc    string    `json:"NavAcc"`
+	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
+	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }
 
 type Navs []Nav
