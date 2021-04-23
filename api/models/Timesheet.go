@@ -9,7 +9,7 @@ import (
 )
 
 type Timesheet struct {
-	Id          int       `json:"Id"`
+	ID          int       `json:"id"`
 	Date        string    `gorm:"default:CURRENT_TIMESTAMP" json:"Tanggal"`
 	Activity    string    `json:"Activity"`
 	ProjectName string    `json:"ProjectName"`
@@ -33,7 +33,7 @@ func (t *Timesheet) GetTimeSheet(db *gorm.DB) (*[]Timesheet, error) {
 }
 
 func (t *Timesheet) Prepare() {
-	t.Id = 0
+	t.ID = 0
 	t.Date = html.EscapeString(strings.TrimSpace(t.Date))
 	t.Activity = html.EscapeString(strings.TrimSpace(t.Activity))
 	t.ProjectName = html.EscapeString(strings.TrimSpace(t.ProjectName))
