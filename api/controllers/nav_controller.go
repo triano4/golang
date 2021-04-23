@@ -54,7 +54,7 @@ func (server *Server) CreateMenu(w http.ResponseWriter, r *http.Request) {
 		responses.ERROR(w, http.StatusInternalServerError, formattedError)
 		return
 	}
-	w.Header().Set("Location", fmt.Sprintf("%s%s/%d", r.Host, r.RequestURI, navCreated.Id))
+	w.Header().Set("Location", fmt.Sprintf("%s%s/%d", r.Host, r.RequestURI, navCreated.ID))
 	responses.JSON(w, http.StatusCreated, navCreated)
 }
 
