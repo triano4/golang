@@ -18,6 +18,7 @@ type Nav struct {
 	NavAcc    string    `json:"NavAcc"`
 	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
 	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	NavChild  []Nav     `json:"NavChild"`
 }
 
 type Navs []Nav
@@ -29,6 +30,20 @@ func (n *Nav) FindAllMenu(db *gorm.DB) (*[]Nav, error) {
 	err = db.Debug().Model(&Nav{}).Find(&navs).Error
 	if err != nil {
 		return &[]Nav{}, err
+	}
+
+	return &navs, err
+}
+
+func (r *Nav) FindMenuByParentId(db *gorm.DB, id string) (*[]Nav, error) {
+	var err error
+	navs := []Nav{}
+	err = db.Debug().Model(Nav{}).Where("ParentId = ?", id).Take(&navs).Error
+	if err != nil {
+		return &[]Nav{}, err
+	}
+	if gorm.IsRecordNotFoundError(err) {
+		return &[]Nav{}, errors.New("menu not found")
 	}
 	return &navs, err
 }

@@ -26,6 +26,16 @@ func (server *Server) GetMenu(w http.ResponseWriter, r *http.Request) {
 	responses.JSON(w, http.StatusOK, navs)
 }
 
+func (server *Server) GetMenuChild(w http.ResponseWriter, r *http.Request) {
+	// nav := models.Nav{}
+
+	// navs, err := nav.FindAllMenu(server.DB)
+	// if( err != nil){
+	// 	responses.ERROR(w, http.StatusUnprocessableEntity, err)
+	// }
+
+}
+
 // Create Menu function
 func (server *Server) CreateMenu(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
